@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop - Nomor Meja</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body style="background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1400') center/cover no-repeat; color: #fff; text-align: center; padding: 100px 20px;">
+
+    <!-- Navbar (sama seperti lainnya) -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">☕ Coffee Shop</div>
+            <ul class="nav-links">
+                <li><a href="index.html#beranda">Beranda</a></li>
+                <li><a href="menu.html">Minuman</a></li>
+                <li><a href="makanan.html">Makanan</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <div class="icons">
+                <span id="cart-icon">🛒 <span id="cartCount">0</span></span>
+                <button id="checkoutBtn">💳 Checkout</button>
+                <button id="dark-mode-toggle">🌙</button>
+            </div>
+            <button id="menu-toggle">≡</button>
+        </nav>
+    </header>
+
+    <!-- Tampilan Nomor Meja Menarik -->
+    <section class="meja-section" data-aos="fade-up">
+        <div class="meja-card">
+            <h1>Selamat Menikmati!</h1>
+            <p>Anda telah memesan makanan dan minuman. Silakan duduk di meja ini sambil menunggu pesanan diantar.</p>
+            <div id="nomor-meja" class="nomor-display">Meja #<span id="meja-number"></span></div>
+            <p>Terima kasih telah memilih Coffee Shop! ☕</p>
+            <a href="index.html" class="btn">Kembali ke Beranda</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Coffee Shop. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Script untuk tampilkan nomor meja dari localStorage -->
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        const mejaNumber = localStorage.getItem('nomorMeja');
+        if (mejaNumber) {
+            document.getElementById('meja-number').textContent = mejaNumber;
+        } else {
+            document.getElementById('meja-number').textContent = 'Tidak ada nomor meja. Silakan pesan ulang.';
+        }
+    </script>
+</body>
+</html>

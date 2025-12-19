@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop - Menu Minuman</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Coffee Shop</div>
+            <ul class="nav-links">
+                <li><a href="index.html#beranda">Beranda</a></li>
+                <li><a href="menu.html">Minuman</a></li>
+                <li><a href="makanan.html">Makanan</a></li>
+                <li><a href="index.html#tentang">Tentang</a></li>
+                <li><a href="index.html#kontak">Kontak</a></li>
+            </ul>
+            <div class="icons">
+                <span id="cart-icon">Cart <span id="cartCount">0</span></span>
+                <button id="checkoutBtn">Checkout</button>
+                <button id="dark-mode-toggle">Dark Mode</button>
+            </div>
+            <button id="menu-toggle">Menu</button>
+        </nav>
+    </header>
+
+    <section id="produk" class="produk">
+        <h2>Menu Minuman</h2>
+        <div class="produk-controls">
+            <input id="search" type="text" placeholder="Cari minuman...">
+            <select id="sort-select">
+                <option value="">Sortir</option>
+                <option value="price-asc">Harga Rendah → Tinggi</option>
+                <option value="price-desc">Harga Tinggi → Rendah</option>
+                <option value="name-asc">Nama A–Z</option>
+            </select>
+        </div>
+
+        <div class="produk-container" id="minuman-container">
+            <div class="card" data-price="24000">
+                <img src="espresso.jpg" alt="Espresso" loading="lazy">
+                <h3>Espresso</h3>
+                <p>Rp24.000</p>
+                <div class="quantity-selector">
+                    <button class="qty-minus">-</button>
+                    <input type="number" value="1" min="1" class="qty-input">
+                    <button class="qty-plus">+</button>
+                </div>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card" data-price="28000">
+                <img src="cappuccino.jpg" alt="Cappuccino" loading="lazy">
+                <h3>Cappuccino</h3>
+                <p>Rp28.000</p>
+                <div class="quantity-selector">
+                    <button class="qty-minus">-</button>
+                    <input type="number" value="1" min="1" class="qty-input">
+                    <button class="qty-plus">+</button>
+                </div>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card" data-price="30000">
+                <img src="matcha.jpg" alt="Matcha Latte" loading="lazy">
+                <h3>Matcha Latte</h3>
+                <p>Rp30.000</p>
+                <div class="quantity-selector">
+                    <button class="qty-minus">-</button>
+                    <input type="number" value="1" min="1" class="qty-input">
+                    <button class="qty-plus">+</button>
+                </div>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card" data-price="28000">
+                <img src="caramel.jpg" alt="Caramel Macchiato" loading="lazy">
+                <h3>Caramel Macchiato</h3>
+                <p>Rp28.000</p>
+                <div class="quantity-selector">
+                    <button class="qty-minus">-</button>
+                    <input type="number" value="1" min="1" class="qty-input">
+                    <button class="qty-plus">+</button>
+                </div>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card" data-price="28000">
+                <img src="V600.jpg" alt="V60" loading="lazy">
+                <h3>V60</h3>
+                <p>Rp28.000</p>
+                <div class="quantity-selector">
+                    <button class="qty-minus">-</button>
+                    <input type="number" value="1" min="1" class="qty-input">
+                    <button class="qty-plus">+</button>
+                </div>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card" data-price="30000">
+                <img src="Afogato.jpg" alt="Affogato" loading="lazy">
+                <h3>Affogato</h3>
+                <p>Rp30.000</p>
+                <div class="quantity-selector">
+                    <button class="qty-minus">-</button>
+                    <input type="number" value="1" min="1" class="qty-input">
+                    <button class="qty-plus">+</button>
+                </div>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card" data-price="25000">
+                <img src="taro.jpeg" alt="Taro Latte" loading="lazy">
+                <h3>Taro Latte</h3>
+                <p>Rp25.000</p>
+                <div class="quantity-selector">
+                    <button class="qty-minus">-</button>
+                    <input type="number" value="1" min="1" class="qty-input">
+                    <button class="qty-plus">+</button>
+                </div>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card" data-price="20000">
+                <img src="bajigur.jpeg" alt="Bajigur" loading="lazy">
+                <h3>Bajigur</h3>
+                <p>Rp20.000</p>
+                <div class="quantity-selector">
+                    <button class="qty-minus">-</button>
+                    <input type="number" value="1" min="1" class="qty-input">
+                    <button class="qty-plus">+</button>
+                </div>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card" data-price="23000">
+                <img src="americano.jpeg" alt="Iced Americano" loading="lazy">
+                <h3>Iced Americano</h3>
+                <p>Rp23.000</p>
+                <div class="quantity-selector">
+                    <button class="qty-minus">-</button>
+                    <input type="number" value="1" min="1" class="qty-input">
+                    <button class="qty-plus">+</button>
+                </div>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card" data-price="27000">
+                <img src="frappucino.jpeg" alt="Frappucino" loading="lazy">
+                <h3>Frappucino</h3>
+                <p>Rp27.000</p>
+                <div class="quantity-selector">
+                    <button class="qty-minus">-</button>
+                    <input type="number" value="1" min="1" class="qty-input">
+                    <button class="qty-plus">+</button>
+                </div>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Coffee Shop. All Rights Reserved.</p>
+    </footer>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal">×</span>
+            <h2>Keranjang Belanja</h2>
+            <div id="cart-items"></div>
+            <p id="cart-total">Total: Rp0</p>
+            <button id="checkout-modal-btn">Checkout</button>
+        </div>
+    </div>
+
+    <button id="back-to-top">Kembali ke Atas</button>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>

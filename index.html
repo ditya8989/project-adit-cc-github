@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop - Nikmati Kopi Terbaik Indonesia</title>
+    <meta name="description" content="Coffee Shop menyajikan kopi pilihan dari biji lokal terbaik Indonesia. Minuman dan makanan berkualitas dengan suasana nyaman.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        /* Tambahan khusus untuk index yang lebih cantik */
+        .hero { 
+            height: 100vh; 
+            min-height: 650px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(62,39,35,0.8), rgba(0,0,0,0.6));
+            z-index: 2;
+        }
+        .hero-content { position: relative; z-index: 10; color: #fff; }
+        .hero h1 { 
+            font-size: 4.5rem; 
+            font-weight: 900; 
+            margin-bottom: 20px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+        .hero p { 
+            font-size: 1.6rem; 
+            max-width: 700px; 
+            margin: 0 auto 40px;
+            opacity: 0.95;
+        }
+        .btn-hero {
+            display: inline-block;
+            padding: 18px 40px;
+            margin: 12px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            min-width: 220px;
+        }
+        .btn-minuman {
+            background: #ffc107;
+            color: #3e2723;
+        }
+        .btn-makanan {
+            background: #fff;
+            color: #3e2723;
+            border: 3px solid #ffc107;
+        }
+        .btn-hero:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+
+        .featured { padding: 100px 20px; background: #fff8e1; text-align: center; }
+        .featured h2 { font-size: 3rem; margin-bottom: 60px; color: #3e2723; }
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .featured-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+        }
+        .featured-card:hover { transform: translateY(-20px); }
+        .featured-card img { width: 100%; height: 250px; object-fit: cover; }
+        .featured-card h3 { font-size: 1.8rem; margin: 20px 0 10px; }
+        .featured-card p { color: #e67e22; font-weight: bold; font-size: 1.4rem; }
+
+        /* Testimonial Slider */
+        .testimonial-swiper { padding: 80px 20px; background: #3e2723; color: #fff; }
+        .swiper-slide { text-align: center; padding: 40px 20px; }
+        .testimonial-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.3rem; }
+            .btn-hero { padding: 14px 30px; font-size: 1.1rem; }
+        }
+    </style>
+</style>
+</head>
+<body>
+
+    <!-- Navbar (sudah pakai Minuman & Makanan terpisah) -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Coffee Shop</div>
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="menu.html">Minuman</a></li>
+                <li><a href="makanan.html">Makanan</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <div class="icons">
+                <span id="cart-icon">Cart <span id="cartCount">0</span></span>
+                <button id="checkoutBtn">Checkout</button>
+                <button id="dark-mode-toggle">Dark Mode</button>
+            </div>
+            <button id="menu-toggle">Menu</button>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION YANG LEBIH MENARIK -->
+    <section id="beranda" class="hero">
+        <div id="hero-slider"></div>
+        <div id="particles-js"></div>
+
+        <div class="hero-content" data-aos="zoom-in">
+            <h1>Selamat Datang di Coffee Shop</h1>
+            <p>Tempat terbaik untuk menikmati kopi spesialti dari biji lokal Indonesia, disajikan dengan cinta dan suasana yang hangat.</p>
+            <div>
+                <a href="menu.html" class="btn-hero btn-minuman">Lihat Minuman</a>
+                <a href="makanan.html" class="btn-hero btn-makanan">Lihat Makanan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FITUR MENU TERLARIS (baru) -->
+    <section class="featured" data-aos="fade-up">
+        <h2>Menu Favorit Pelanggan</h2>
+        <div class="featured-grid">
+            <div class="featured-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="espresso.jpg" alt="Espresso">
+                <h3>Espresso Klasik</h3>
+                <p>Rp24.000</p>
+            </div>
+            <div class="featured-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="cappuccino.jpg" alt="Cappuccino">
+                <h3>Cappuccino </h3>
+                <p>Rp28.000</p>
+            </div>
+            <div class="featured-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="croisant.jpg" alt="Croissant">
+                <h3>Butter Croissant</h3>
+                <p>Rp28.000</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL DENGAN SLIDER (lebih elegan) -->
+    <section class="testimonial-swiper">
+        <h2 style="text-align:center; font-size:3rem; margin-bottom:50px;">Apa Kata Pelanggan Kami</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <p style="font-size:1.4rem; line-height:1.8;">"Kopi terbaik di Jakarta! Rasa autentik dan pelayanan ramah."</p>
+                        <h4 style="margin-top:30px;">— Andi, Jakarta</h4>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <p style="font-size:1.4rem; line-height:1.8;">"Matcha Latte-nya juara! Segar, tidak terlalu manis, pas banget."</p>
+                        <h4 style="margin-top:30px;">— Sarah, Bandung</h4>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <p style="font-size:1.4rem; line-height:1.8;">"Tempatnya cozy, croissant-nya renyah, cocok buat kerja atau nongkrong."</p>
+                        <h4 style="margin-top:30px;">— Citra, Surabaya</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- TENTANG & KONTAK tetap sama (dibuat lebih ringkas) -->
+    <section id="tentang" class="tentang" style="padding:100px 20px; text-align:center; background:#fff;" data-aos="fade-up">
+        <h2 style="font-size:3rem; color:#3e2723;">Tentang Kami</h2>
+        <p style="font-size:1.4rem; max-width:800px; margin:30px auto; line-height:1.8;">
+            Coffee Shop berdiri sejak 2020 dengan misi menyajikan kopi terbaik dari biji pilihan petani lokal Indonesia. 
+            Setiap cangkir adalah cerita, setiap kunjungan adalah kenangan.
+        </p>
+    </section>
+
+    <section id="kontak" style="padding:100px 20px; background:#f8f8f8;" data-aos="fade-up">
+        <h2 style="text-align:center; font-size:3rem; margin-bottom:50px; color:#3e2723;">Kunjungi Kami</h2>
+        <div style="display:flex; flex-wrap:wrap; gap:40px; max-width:1200px; margin:0 auto; justify-content:center;">
+            <div style="flex:1; min-width:300px;">
+                <p><strong>Alamat</strong><br>Jl. Kopi No. 123, Jakarta Selatan</p>
+                <p><strong>Telepon</strong><br>0877-777-13395</p>
+                <p><strong>Jam Buka</strong><br>Setiap hari 07:00 – 23:00 WIB</p>
+            </div>
+            <div style="flex:1; min-width:300px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.650763272243!2d106.81926517499193!3d-6.176655793807949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3f8f39a3e91%3A0xdee5b91b22f6ad8!2sJakarta!5e0!3m2!1sid!2sid!4v1689190372989!5m2!1sid!2sid" 
+                    width="100%" height="300" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background:#2e1e1a; color:#fff; padding:30px; text-align:center;">
+        <p>© 2025 Coffee Shop. Afriza Adit Ilman</p>
+    </footer>
+
+    <!-- Modal Cart & Back to Top (tetap) -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal">×</span>
+            <h2>Keranjang Belanja</h2>
+            <div id="cart-items"></div>
+            <p id="cart-total">Total: Rp0</p>
+            <button id="checkout-modal-btn">Checkout</button>
+        </div>
+    </div>
+    <button id="back-to-top">Kembali ke Atas</button>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: true });
+
+        // Particles
+        particlesJS('particles-js', {
+            particles: { number: { value: 80 }, color: { value: '#d4a574' }, shape: { type: 'circle' }, opacity: { value: 0.4 }, size: { value: 4 }, move: { enable: true, speed: 3 } },
+            interactivity: { events: { onhover: { enable: true, mode: 'repulse' } } }
+        });
+
+        // Slider Hero
+        const images = [
+            'https://images.unsplash.com/photo-1495474472287-371f920dcdd5?w=1600',
+            'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1600',
+            'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1600',
+            'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1600'
+        ];
+        let i = 0;
+        const slider = document.getElementById('hero-slider');
+        function nextSlide() {
+            slider.style.backgroundImage = `url(${images[i]})`;
+            i = (i + 1) % images.length;
+        }
+        nextSlide();
+        setInterval(nextSlide, 6000);
+
+        // Testimonial Swiper
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: { delay: 4000 },
+            pagination: { el: ".swiper-pagination", clickable: true },
+        });
+    </script>
+</body>
+</html>
